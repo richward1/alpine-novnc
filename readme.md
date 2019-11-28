@@ -1,11 +1,26 @@
-#Singularity Alpine
+# Singularity Alpine NoVNC
+Primary repository for an Alpine-based linux container running noVNC.
 
-This is awful.  
-Everything is awful.  
-Singularity sucks.
+## Usage
 
-One Singularity file almost works.  
-The other one is also broken.  
+Clone the repo.
+```
+git clone https://github.com/richward1/alpine-novnc
+```
 
-Did I mention I hate Singularity? 
-Enjoy.
+Build the container from Singularityfile.
+```
+singularity build alpine-novnc.simg Singularity
+```
+
+Run the container
+```
+singularity run alpine-novnc.simg
+```
+
+## Author
+Rich Ward
+
+### More Info
+Version: 1.0
+
