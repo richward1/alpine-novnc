@@ -4,7 +4,7 @@ from: alpine
 #Install python & deps for websockify, x11vnc & xvfb for VNC server
 #xclock for testing
 %post
-	apk add --update git python python-dev gfortran py-pip build-base py-setuptools procps xclock x11nvc xvfb && \
+	apk add --update git python python-dev gfortran py-pip build-base py-setuptools procps xclock x11vnc xvfb && \
 	pip install numpy && \
 	wget -O websockify.zip https://github.com/novnc/websockify/archive/v0.9.0.zip && \
 	unzip websockify.zip && \
