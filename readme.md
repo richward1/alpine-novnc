@@ -13,7 +13,7 @@ Build the container from Singularityfile.
 singularity build alpine-novnc.simg Singularity
 ```
 
-Run the container
+Run the container  
 **Note:** You must (for now) run this with the ``--containall`` flag!
 ```
 singularity run --containall alpine-novnc.simg
@@ -23,5 +23,5 @@ singularity run --containall alpine-novnc.simg
 Rich Ward
 
 ### More Info
-Version: 1.0
+Version: 2.0
 
