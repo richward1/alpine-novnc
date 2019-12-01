@@ -2,10 +2,11 @@ bootstrap: docker
 from: alpine
 
 %post
-	apk add xclock xvfb fluxbox tmux x11vnc st && \
-	sed -r -i 's/\[exec\] \(xterm\) \{xterm\}/\[exec\] \(st\) \{st\}/' /usr/share/fluxbox/menu && \
-	echo "exec fluxbox" > ~/.xinitrc && \	
+	apk add xclock xvfb fluxbox tmux x11vnc st xterm
+	#sed -r -i 's/\[exec\] \(xterm\) \{xterm\}/\[exec\] \(st\) \{st\}/' /usr/share/fluxbox/menu
 
-%startscript
-	xinit -- /usr/bin/Xvfb :5 -screen 0 1024x768x24 & x11vnc -display :5
+%runscript
+	xinit -- /usr/bin/Xvfb :$(find_free_servernum) -screen 0 1024x768x24 &> /dev/null & x11vnc -q -passwd password -display :$(find_free_servernum) & \
+	echo "Starting X Server on :$(find_free_servernum)..." & \
+	echo "VNC Password is: password"
 
