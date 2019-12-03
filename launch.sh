@@ -1,7 +1,7 @@
 #!/bin/sh
 find_free_servernum()
 {
-	i=1
+	i=5
         while [ -f /tmp/.X$i-lock ]; do
         	i=$(($i + 1))
         done
