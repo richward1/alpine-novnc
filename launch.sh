@@ -1,7 +1,7 @@
 #!/bin/sh
 find_free_servernum()
 {
-	i=5
+	i=10
         while [ -f /tmp/.X$i-lock ]; do
         	i=$(($i + 1))
         done
@@ -14,4 +14,4 @@ PASSWD=$(randpw)
 
 echo "Starting X server on :$(find_free_servernum)" && \
 echo "VNC Password is: $PASSWD" && \
-xinit -- /usr/bin/Xvfb :$(find_free_servernum) -screen 0 1024x768x24 &> /dev/null & x11vnc -q -passwd $PASSWD -display :$(find_free_servernum)
+xinit -- /usr/bin/Xvfb :$(find_free_servernum) -screen 0 1024x768x24 &> /dev/null & x11vnc -q -forever -passwd $PASSWD -display :$(find_free_servernum) & /./noVNC-1.1.0/utils/launch.sh
